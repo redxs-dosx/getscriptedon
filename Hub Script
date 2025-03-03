@@ -1,32 +1,25 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = Rayfield:CreateWindow({   
+local Window = Rayfield:CreateWindow({
    Name = "getscriptedon",
-   Icon = 77737562387577, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   Icon = 77737562387577, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).     
    LoadingTitle = "getscriptedon.lua",
    LoadingSubtitle = "by redxs_rblx & dxntcarelol",
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
-
-   DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
-
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "GSO"
+      FileName = "gso"
    },
-
    Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      Enabled = true,
+      Invite = "5tBNqX3Ngp", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
-
    KeySystem = false, -- Set this to true to use our key system
    KeySettings = {
       Title = "Untitled",
       Subtitle = "Key System",
-      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      Note = "No method of obtaining the key is provided",
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
@@ -34,8 +27,23 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab = Window:CreateTab("🏠 Main", nil) -- Title, Image
-local Section = Tab:CreateSection("🔨 Admin")
+local MainTab = Window:CreateTab("Main", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Admin")
+
+Rayfield:Notify({
+   Title = "Executed.",
+   Content = "Welcome!",
+   Duration = 5,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
 
 local Button = MainTab:CreateButton({
    Name = "Infinite Yield",
@@ -45,10 +53,28 @@ local Button = MainTab:CreateButton({
 })
 
 local Button = MainTab:CreateButton({
-   Name = "Reviz Admin"
+   Name = "Nameless Admin",
    Callback = function()
-        loadstring(game:HttpGet('https://pastebin.com/raw/A2R7TdJV'))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Nameless-Admin-23304"))()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Section = MainTab:CreateSection("Tools")
+
+local Button = Tab:CreateButton({
+   Name = "Click TP",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Teleport%20Tool/Source.lua"))()
+   -- The function that takes place when the button is pressed
    end,
 })
 
 
+local Tab = Window:CreateTab("Info", nil) -- Title, Image
+
+local Paragraph = Tab:CreateParagraph({Title = "Scripters", Content = "by redxs_rblx & dxntcarelol"})
+
+local Paragraph = Tab:CreateParagraph({Title = "Version", Content = "v0.2, betastg"})
+
+local Paragraph = Tab:CreateParagraph({Title = "Info", Content = "Using Rayfield UI Lib, Script Hub, New, Beta"})
