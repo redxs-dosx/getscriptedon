@@ -11,7 +11,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "gso"
    },
    Discord = {
-      Enabled = true,
+      Enabled = false,
       Invite = "5tBNqX3Ngp", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
@@ -69,7 +69,7 @@ local Button = MainTab:CreateButton({
    end,
 })
 
-local Button = Tab:CreateButton({
+local Button = MainTab:CreateButton({
    Name = "TEST ESP",
    Callback = function()
 local Players = game:GetService("Players")
@@ -112,16 +112,14 @@ for _, player in pairs(Players:GetPlayers()) do
     end)
 end
 
-while true do
+while true do,
     for _, player in pairs(Players:GetPlayers()) do
         if player.Character and player.Character:FindFirstChildOfClass("Highlight") then
             player.Character:FindFirstChildOfClass("Highlight").Adornee = player.Character
         end
     end
     wait(10) -- Wait for 10 seconds before looping again
-end
 
-   -- The function that takes place when the button is pressed
    end,
 })
 
