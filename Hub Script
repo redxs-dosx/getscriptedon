@@ -69,6 +69,61 @@ local Button = MainTab:CreateButton({
    end,
 })
 
+local Button = Tab:CreateButton({
+   Name = "TEST ESP",
+   Callback = function()
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Camera = workspace.CurrentCamera
+
+local ESP_Color = Color3.fromRGB(255, 0, 0) -- Change this color to your preference
+local ESP_Transparency = 0.5 -- Adjust transparency if needed
+
+local function CreateESP(player)
+    if player ~= Players.LocalPlayer then
+        local highlight = Instance.new("Highlight")
+        highlight.Adornee = player.Character
+        highlight.Parent = player.Character
+        highlight.FillColor = ESP_Color
+        highlight.FillTransparency = ESP_Transparency
+    end
+end
+
+local function RemoveESP(player)
+    if player.Character and player.Character:FindFirstChildOfClass("Highlight") then
+        player.Character:FindFirstChildOfClass("Highlight"):Destroy()
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function()
+        CreateESP(player)
+    end)
+end)
+
+Players.PlayerRemoving:Connect(RemoveESP)
+
+for _, player in pairs(Players:GetPlayers()) do
+    if player.Character then
+        CreateESP(player)
+    end
+    player.CharacterAdded:Connect(function()
+        CreateESP(player)
+    end)
+end
+
+while true do
+    for _, player in pairs(Players:GetPlayers()) do
+        if player.Character and player.Character:FindFirstChildOfClass("Highlight") then
+            player.Character:FindFirstChildOfClass("Highlight").Adornee = player.Character
+        end
+    end
+    wait(10) -- Wait for 10 seconds before looping again
+end
+
+   -- The function that takes place when the button is pressed
+   end,
+})
 
 local InfoTab = Window:CreateTab("Info", nil) -- Title, Image
 
