@@ -64,7 +64,7 @@ local Section = MainTab:CreateSection("Tools")
 local Button = MainTab:CreateButton({
    Name = "Click TP",
    Callback = function()
-        
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Permanent-TP-TOOL-30536"))()
    -- The function that takes place when the button is pressed
    end,
 })
