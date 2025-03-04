@@ -191,7 +191,7 @@ Sense.Load()
    end,
 })
 
-local InfoTab = Window:CreateTab("Info", nil) -- Title, Image
+local Tab = Window:CreateTab("Info", nil) -- Title, Image
 
 local Paragraph = InfoTab:CreateParagraph({Title = "Scripters", Content = "by redxs_rblx & dxntcarelol"})
 
