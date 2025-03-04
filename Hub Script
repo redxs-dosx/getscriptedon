@@ -11,7 +11,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "gso"
    },
    Discord = {
-      Enabled = false,
+      Enabled = true,
       Invite = "5tBNqX3Ngp", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
@@ -64,13 +64,16 @@ local Section = MainTab:CreateSection("Tools")
 local Button = MainTab:CreateButton({
    Name = "Click TP",
    Callback = function()
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Permanent-TP-TOOL-30536"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Teleport%20Tool/Source.lua"))()
    -- The function that takes place when the button is pressed
    end,
 })
 
 
-local Tab = Window:CreateTab("Info", nil) -- Title, Image
-local Paragraph = Tab:CreateParagraph({Title = "Scripters", Content = "by redxs_rblx & dxntcarelol"})
-local Paragraph = Tab:CreateParagraph({Title = "Version", Content = "v0.2, betastg"})
-local Paragraph = Tab:CreateParagraph({Title = "Info", Content = "Using Rayfield UI Lib, Script Hub, New, Beta"})
+local InfoTab = Window:CreateTab("Info", nil) -- Title, Image
+
+local Paragraph = InfoTab:CreateParagraph({Title = "Scripters", Content = "by redxs_rblx & dxntcarelol"})
+
+local Paragraph = InfoTab:CreateParagraph({Title = "Version", Content = "v0.2, betastg"})
+
+local Paragraph = InfoTab:CreateParagraph({Title = "Info", Content = "Using Rayfield UI Lib, Script Hub, New, Beta"})
