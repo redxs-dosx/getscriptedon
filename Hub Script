@@ -71,9 +71,6 @@ local Button = MainTab:CreateButton({
 
 
 local Tab = Window:CreateTab("Info", nil) -- Title, Image
-
-local Paragraph = InfoTab:CreateParagraph({Title = "Scripters", Content = "by redxs_rblx & dxntcarelol"})
-
-local Paragraph = InfoTab:CreateParagraph({Title = "Version", Content = "v0.2, betastg"})
-
-local Paragraph = InfoTab:CreateParagraph({Title = "Info", Content = "Using Rayfield UI Lib, Script Hub, New, Beta"})
+local Paragraph = Tab:CreateParagraph({Title = "Scripters", Content = "by redxs_rblx & dxntcarelol"})
+local Paragraph = Tab:CreateParagraph({Title = "Version", Content = "v0.2, betastg"})
+local Paragraph = Tab:CreateParagraph({Title = "Info", Content = "Using Rayfield UI Lib, Script Hub, New, Beta"})
